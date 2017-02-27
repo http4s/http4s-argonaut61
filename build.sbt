@@ -3,7 +3,7 @@ import scala.util.Properties.envOrNone
 lazy val scalazVersion = settingKey[String]("The version of Scalaz used for building.")
 
 organization := "org.http4s"
-version := "0.15.3"
+version := "0.15.5"
 name := "http4s-argonaut61"
 description := "argonaut-6.1 support for http4s"
 
