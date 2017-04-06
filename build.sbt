@@ -3,13 +3,13 @@ import scala.util.Properties.envOrNone
 lazy val scalazVersion = settingKey[String]("The version of Scalaz used for building.")
 
 organization := "org.http4s"
-version := "0.15.5"
+version := "0.15.6"
 name := "http4s-argonaut61"
 description := "argonaut-6.1 support for http4s"
 
 scalaVersion := "2.10.6"
 crossScalaVersions <<= scalaVersion(Seq(_, "2.11.8"))
-scalazVersion := "7.1.11"
+scalazVersion := sys.env.getOrElse("SCALAZ_VERSION", "7.1.11")
 version := scalazCrossBuild(version.value, scalazVersion.value)
 
 def scalazCrossBuild(version: String, scalazVersion: String) =
