@@ -3,7 +3,7 @@ import scala.util.Properties.envOrNone
 lazy val scalazVersion = settingKey[String]("The version of Scalaz used for building.")
 
 organization := "org.http4s"
-version := "0.16.0-SNAPSHOT"
+version := "0.16.0-M1"
 name := "http4s-argonaut61"
 description := "argonaut-6.1 support for http4s"
 
@@ -19,6 +19,8 @@ def scalazCrossBuild(version: String, scalazVersion: String) =
     case Seq(7, 2, _*) =>
       if (version.endsWith("-SNAPSHOT"))
         version.replaceFirst("-SNAPSHOT$", "a-SNAPSHOT")
+      else if (version.contains("-M"))
+        version.replaceFirst("""(-M\d+)$""", """a-M\1""")
       else
         s"${version}a"
   }
