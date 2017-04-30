@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for SCALAZ_VERSION in 7.1.11 7.2.7; do
+for SCALAZ_VERSION in 7.1.13 7.2.11; do
   env SCALAZ_VERSION=$SCALAZ_VERSION sbt +clean +test +publishSigned
 done
 sbt sonatypeRelease
